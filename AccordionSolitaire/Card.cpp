@@ -15,7 +15,7 @@ Card::Card(int iValue, int iSuit)
 
 void Card::SetTexturePath()
 {
-	texturePath = "Cards/" + std::to_string(value) + static_cast<char>(Suit[suit]) + ".png";
+	texturePath = "Assets/Cards/" + std::to_string(value) + static_cast<char>(Suit[suit]) + ".png";
 }
 
 void Card::CreateSprite()

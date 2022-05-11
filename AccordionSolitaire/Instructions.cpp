@@ -8,7 +8,7 @@ Instructions::Instructions()
 
 void Instructions::SetupFont()
 {
-	if (!font.loadFromFile("Accordion.otf")) {}
+	if (!font.loadFromFile("Assets/Fonts/Accordion.otf")) {}
 }
 
 void Instructions::SetupText()

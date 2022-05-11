@@ -9,7 +9,7 @@ Stack::Stack(const std::vector<Card>& vCards, sf::Vector2f vStackPosition, int i
 	stackPosition = vStackPosition;
 	fontName = sFontName;
 
-	if (!baseStackTexture.loadFromFile("Cards/0c.png")) {}
+	if (!baseStackTexture.loadFromFile("Assets/Cards/0c.png")) {}
 }
 
 void Stack::SetTexturePath()
@@ -20,7 +20,7 @@ void Stack::SetTexturePath()
 		return;
 	}
 
-	texturePath = "Cards/0c.png";
+	texturePath = "Assets/Cards/0c.png";
 }
 
 void Stack::SetSizeText()

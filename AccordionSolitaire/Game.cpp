@@ -22,7 +22,7 @@ void Game::Setup(sf::RenderWindow& window)
 	SetUpStacks();
 	stacks[0].setEnabled(true);
 
-	if (!font.loadFromFile("Accordion.otf")) {}
+	if (!font.loadFromFile("Assets/Fonts/Accordion.otf")) {}
 }
 
 void Game::Reset(sf::RenderWindow& window)
@@ -65,7 +65,7 @@ void Game::SetUpStacks()
 		float yPos = 150.0f + (275.0f * (i / 9));
 		sf::Vector2f pos(xPos, yPos);
 		stackPositions.push_back(pos);
-		stacks.push_back(Stack({}, stackPositions.back(), i, "Accordion.otf"));
+		stacks.push_back(Stack({}, stackPositions.back(), i, "Assets/Fonts/Accordion.otf"));
 	}
 
 	for (int i = 0; i < 27; ++i)
@@ -106,7 +106,7 @@ void Game::CombineStacks(int baseStackIdx, int piledStackIdx)
 	std::vector<Card> baseStackCards = stacks[baseStackIdx].getCards();
 	std::vector<Card> piledStackCards = stacks[piledStackIdx].getCards();
 	baseStackCards.insert(baseStackCards.end(), piledStackCards.begin(), piledStackCards.end());
-	Stack newStack(baseStackCards, stacks[baseStackIdx].getStackPosition(), baseStackIdx, "Accordion.otf");
+	Stack newStack(baseStackCards, stacks[baseStackIdx].getStackPosition(), baseStackIdx, "Assets/Fonts/Accordion.otf");
 
 	stackedPoints += 10 * piledStackCards.size();
 	score += 10 * piledStackCards.size();
@@ -128,7 +128,7 @@ void Game::CombineStacks(int baseStackIdx, int piledStackIdx)
 void Game::MoveStackToEnd(int stackIdx)
 {
 	std::vector<Card> piledStackCards = stacks[stackIdx].getCards();
-	Stack newStack(piledStackCards, stacks[emptyEnabledStack - 1].getStackPosition(), emptyEnabledStack - 1, "Accordion.otf");
+	Stack newStack(piledStackCards, stacks[emptyEnabledStack - 1].getStackPosition(), emptyEnabledStack - 1, "Assets/Fonts/Accordion.otf");
 
 	movingPenalty += 7 * piledStackCards.size();
 	score -= 7 * piledStackCards.size();
@@ -325,7 +325,7 @@ void Game::settleStacks(bool combined)
 	{
 		--emptyEnabledStack;
 		//std::cout << emptyEnabledStack << std::endl;
-		stacks.push_back(Stack({}, stackPositions.back(), stacks.size(), "Accordion.otf"));
+		stacks.push_back(Stack({}, stackPositions.back(), stacks.size(), "Assets/Fonts/Accordion.otf"));
 		stacks.back().CreateSprite();
 
 		if (emptyEnabledStack == stacks.size() - 1)
@@ -335,7 +335,7 @@ void Game::settleStacks(bool combined)
 	}
 	else
 	{
-		stacks.push_back(Stack({}, stackPositions.back(), stacks.size(), "Accordion.otf"));
+		stacks.push_back(Stack({}, stackPositions.back(), stacks.size(), "Assets/Fonts/Accordion.otf"));
 		stacks.back().CreateSprite();
 
 		if (emptyEnabledStack < stacks.size())

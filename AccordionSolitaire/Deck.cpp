@@ -2,7 +2,7 @@
 
 Deck::Deck(bool bJoker, sf::Vector2f vLocDeck)
 {
-	deckBack = "Cards/back.png";
+	deckBack = "Assets/Cards/back.png";
 	locDeck = vLocDeck;
 	SetDeckSprite();
 
@@ -62,7 +62,7 @@ void Deck::SetDeckSprite()
 
 void Deck::DeckIsEmpty()
 {
-	deckBack = "Cards/0c.png";
+	deckBack = "Assets/Cards/0c.png";
 	//locDeck = sf::Vector2f(1000.0f, 1000.0f);
 	SetDeckSprite();
 }

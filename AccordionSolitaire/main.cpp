@@ -44,7 +44,7 @@ int main()
 	if (!deckShader.loadFromFile("card.vert", "dull.frag")) {}
 	if (!stackShader.loadFromFile("card.vert", "bright.frag")) {}
 
-	if (!font.loadFromFile("Accordion.otf")) {}
+	if (!font.loadFromFile("Assets/Fonts/Accordion.otf")) {}
 
 	title.setFont(font);
 	subtitle.setFont(font);
