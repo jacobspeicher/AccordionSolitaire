@@ -7,9 +7,9 @@
 #include "Game.h"
 #include "GameScene.h"
 #include "InstructionsScene.h"
+#include "GameUI.h"
 
 void processKeyboard(sf::RenderWindow& window, Game& game, sf::Event event);
-void processMouse(sf::RenderWindow& window, Game& game, sf::Event event);
 
 bool drawingCard = false;
 bool started = false;
@@ -18,15 +18,15 @@ sf::Shader cardShader;
 sf::Shader deckShader;
 sf::Shader stackShader;
 
-sf::Font font; 
-
-sf::Text title;
-sf::Text subtitle;
-sf::Text score;
-sf::Text cardsLeft;
-sf::Text resetText;
-sf::Text gameOver;
-sf::Text version;
+//sf::Font font; 
+//
+//sf::Text title;
+//sf::Text subtitle;
+//sf::Text score;
+//sf::Text cardsLeft;
+//sf::Text resetText;
+//sf::Text gameOver;
+//sf::Text version;
 
 static bool settled = false;
 
@@ -41,13 +41,14 @@ int main()
 	Game game(window);
 
 	GameScene* gameScene = new GameScene(window);
+	GameUI* gameUI = new GameUI(window, *gameScene);
 	InstructionsScene* instrScene = new InstructionsScene(window);
 
 	if (!cardShader.loadFromFile("card.vert", "dull.frag")) {}
 	if (!deckShader.loadFromFile("card.vert", "dull.frag")) {}
 	if (!stackShader.loadFromFile("card.vert", "bright.frag")) {}
 
-	if (!font.loadFromFile("Assets/Fonts/Accordion.otf")) {}
+	/*if (!font.loadFromFile("Assets/Fonts/Accordion.otf")) {}
 
 	title.setFont(font);
 	subtitle.setFont(font);
@@ -77,7 +78,7 @@ int main()
 	cardsLeft.setPosition(sf::Vector2f(1500, 950));
 	resetText.setPosition(sf::Vector2f(1500, 1000));
 	gameOver.setPosition(sf::Vector2f(1200, 900));
-	version.setPosition(sf::Vector2f(20, 1050));
+	version.setPosition(sf::Vector2f(20, 1050));*/
 
 	sf::Clock clock;
 	int gameOverCheckInterval = 0;
@@ -106,19 +107,23 @@ int main()
 
 		window.clear(sf::Color::Color(0, 120, 0));
 
-		window.draw(title);
-		window.draw(subtitle);
-		window.draw(version);
+		/*if (!started)
+		{
+			window.draw(title);
+			window.draw(subtitle);
+			window.draw(version);
+		}*/
 
 		if (started)
 		{
-			window.draw(resetText);
+			//window.draw(resetText);
 
-			score.setString("Score : " + std::to_string(game.getScore()));
+			/*score.setString("Score : " + std::to_string(game.getScore()));
 			window.draw(score);
 
 			cardsLeft.setString("Cards Left : " + std::to_string(game.deck->cards.size()));
-			window.draw(cardsLeft);
+			window.draw(cardsLeft);*/
+			gameUI->Draw();
 
 			gameScene->Draw();
 
@@ -132,7 +137,7 @@ int main()
 					}
 					settled = true;
 					game.DrawGameOverScreen(window);
-					window.draw(gameOver);
+					//window.draw(gameOver);
 				}
 				else
 				{

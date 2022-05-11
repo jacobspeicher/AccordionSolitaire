@@ -5,6 +5,7 @@ GameScene::GameScene(sf::RenderWindow& window) : Scene(window)
 	Setup();
 }
 
+#pragma region SceneRequried
 void GameScene::Setup()
 {
 	game = new Game(*window);
@@ -74,6 +75,19 @@ void GameScene::ProcessMouse(sf::Event event)
 		processMouseMoved(mousePos);
 	}
 }
+#pragma endregion SceneRequired
+
+#pragma region GameAccess
+int GameScene::GetScore()
+{
+	return game->getScore();
+}
+
+int GameScene::GetCardsLeft()
+{
+	return game->deck->cards.size();
+}
+#pragma endregion GameAccess
 
 #pragma region private
 void GameScene::processLMBClicked(sf::Vector2f mousePos)
