@@ -6,6 +6,7 @@
 
 #include "Game.h"
 #include "Instructions.h"
+#include "GameScene.h"
 
 void processKeyboard(sf::RenderWindow& window, Game& game, sf::Event event);
 void processMouse(sf::RenderWindow& window, Game& game, sf::Event event);
@@ -39,6 +40,8 @@ int main()
 
 	Game game(window);
 	Instructions instructions;
+
+	GameScene* gameScene = new GameScene(window);
 
 	if (!cardShader.loadFromFile("card.vert", "dull.frag")) {}
 	if (!deckShader.loadFromFile("card.vert", "dull.frag")) {}
@@ -96,7 +99,8 @@ int main()
 
 			if (!game.IsGameOver())
 			{
-				processMouse(window, game, event);
+				//processMouse(window, game, event);
+				gameScene->ProcessMouse(event);
 			}
 		}
 
@@ -116,43 +120,44 @@ int main()
 			cardsLeft.setString("Cards Left : " + std::to_string(game.deck->cards.size()));
 			window.draw(cardsLeft);
 
-			for (int i = 0; i < game.stacks.size(); ++i)
-			{
-				if (game.getStackPickedUp() && (i == game.getPickedStackIndex()))
-				{
-					continue;
-				}
+			gameScene->Draw();
+			//for (int i = 0; i < game.stacks.size(); ++i)
+			//{
+			//	if (game.getStackPickedUp() && (i == game.getPickedStackIndex()))
+			//	{
+			//		continue;
+			//	}
 
-				if (i <= game.getRightmostStack())
-				{
-					game.stacks[i].DrawStack(window, stackShader);
-				}
-				//game.stacks[i].DrawStack(window, stackShader);
-			}
+			//	if (i <= game.getRightmostStack())
+			//	{
+			//		game.stacks[i].DrawStack(window, stackShader);
+			//	}
+			//	//game.stacks[i].DrawStack(window, stackShader);
+			//}
 
-			game.deck->DrawDeckPile(window, deckShader);
+			//game.deck->DrawDeckPile(window, deckShader);
 
-			if (game.getHandPickedUp())
-			{
-				game.hand.DrawOnScreen(
-					window,
-					static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)),
-					cardShader
-				);
-			}
-			else
-			{
-				game.hand.DrawOnScreen(window, game.locHand, cardShader);
-			}
+			//if (game.getHandPickedUp())
+			//{
+			//	game.hand.DrawOnScreen(
+			//		window,
+			//		static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)),
+			//		cardShader
+			//	);
+			//}
+			//else
+			//{
+			//	game.hand.DrawOnScreen(window, game.locHand, cardShader);
+			//}
 
-			if (game.getStackPickedUp())
-			{
-				game.stacks[game.getPickedStackIndex()].DrawStack(
-					window,
-					static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)),
-					stackShader
-				);
-			}
+			//if (game.getStackPickedUp())
+			//{
+			//	game.stacks[game.getPickedStackIndex()].DrawStack(
+			//		window,
+			//		static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)),
+			//		stackShader
+			//	);
+			//}
 
 			if (gameOverCheckInterval >= 1000)
 			{
