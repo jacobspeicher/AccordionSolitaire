@@ -11,12 +11,7 @@
 
 void processKeyboard(sf::RenderWindow& window, Game& game, sf::Event event);
 
-bool drawingCard = false;
 bool started = false;
-
-sf::Shader cardShader;
-sf::Shader deckShader;
-sf::Shader stackShader;
 
 static bool settled = false;
 
@@ -33,10 +28,6 @@ int main()
 	GameScene* gameScene = new GameScene(window);
 	GameUI* gameUI = new GameUI(window, *gameScene);
 	InstructionsScene* instrScene = new InstructionsScene(window);
-
-	if (!cardShader.loadFromFile("card.vert", "dull.frag")) {}
-	if (!deckShader.loadFromFile("card.vert", "dull.frag")) {}
-	if (!stackShader.loadFromFile("card.vert", "bright.frag")) {}
 
 	sf::Clock clock;
 	int gameOverCheckInterval = 0;
