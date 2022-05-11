@@ -7,6 +7,7 @@
 #include "Game.h"
 #include "Instructions.h"
 #include "GameScene.h"
+#include "InstructionsScene.h"
 
 void processKeyboard(sf::RenderWindow& window, Game& game, sf::Event event);
 void processMouse(sf::RenderWindow& window, Game& game, sf::Event event);
@@ -42,6 +43,7 @@ int main()
 	Instructions instructions;
 
 	GameScene* gameScene = new GameScene(window);
+	InstructionsScene* instrScene = new InstructionsScene(window);
 
 	if (!cardShader.loadFromFile("card.vert", "dull.frag")) {}
 	if (!deckShader.loadFromFile("card.vert", "dull.frag")) {}
@@ -144,7 +146,7 @@ int main()
 		}
 		else
 		{
-			instructions.DrawInstructions(window);
+			instrScene->Draw();
 		}
 
 		window.display();

@@ -11,9 +11,11 @@ void GameScene::Setup()
 
 	shaders["Card"] = new sf::Shader();
 	shaders["Deck"] = new sf::Shader();
+	shaders["Stack"] = new sf::Shader();
 
 	if (!shaders["Card"]->loadFromFile("card.vert", "dull.frag")) {}
 	if (!shaders["Deck"]->loadFromFile("card.vert", "dull.frag")) {}
+	if (!shaders["Stack"]->loadFromFile("card.vert", "bright.frag")) {}
 
 	shaders["Card"]->setUniform("alpha", 0.5f);
 	shaders["Deck"]->setUniform("alpha", 0.5f);
@@ -27,7 +29,7 @@ void GameScene::Draw()
 		{
 			continue;
 		}
-		game->stacks[i].DrawStack(*window, *shaders["Card"]);
+		game->stacks[i].DrawStack(*window, *shaders["Stack"]);
 	}
 
 	game->deck->DrawDeckPile(*window, *shaders["Deck"]);
@@ -50,7 +52,7 @@ void GameScene::Draw()
 		game->stacks[game->getPickedStackIndex()].DrawStack(
 			*window,
 			static_cast<sf::Vector2f>(sf::Mouse::getPosition(*window)),
-			*shaders["Deck"]
+			*shaders["Stack"]
 		);
 	}
 }
