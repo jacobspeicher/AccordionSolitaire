@@ -5,7 +5,6 @@
 #include <iostream>
 
 #include "Game.h"
-#include "Instructions.h"
 #include "GameScene.h"
 #include "InstructionsScene.h"
 
@@ -40,7 +39,6 @@ int main()
 	window.setFramerateLimit(60);
 
 	Game game(window);
-	Instructions instructions;
 
 	GameScene* gameScene = new GameScene(window);
 	InstructionsScene* instrScene = new InstructionsScene(window);

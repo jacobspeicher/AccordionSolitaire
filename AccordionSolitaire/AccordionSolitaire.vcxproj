@@ -161,7 +161,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="Instructions.cpp" />
     <ClCompile Include="InstructionsScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -173,7 +172,6 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="Instructions.h" />
     <ClInclude Include="InstructionsScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Stack.h" />
