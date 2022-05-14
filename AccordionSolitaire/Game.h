@@ -48,7 +48,7 @@ public:
 	bool IsGameOver();
 
 	// settle up the game, compute the final score, all that
-	void SettleGame();
+	std::map<std::string, int> SettleGame();
 
 	// draw all the end-of-game metrics
 	void DrawGameOverScreen(sf::RenderWindow& window);

@@ -3,11 +3,18 @@
 CustomEvent::CustomEvent()
 {
 	screen = Screen::null;
-	eventData = 0;
+	event = 0;
 }
 
-CustomEvent::CustomEvent(Screen inScreen, int inEventData)
+CustomEvent::CustomEvent(Screen inScreen, int inEvent)
 {
 	screen = inScreen;
-	eventData = inEventData;
+	event = inEvent;
+}
+
+CustomEvent::CustomEvent(Screen inScreen, int inEvent, std::map<std::string, int> inData)
+{
+	screen = inScreen;
+	event = inEvent;
+	data = inData;
 }

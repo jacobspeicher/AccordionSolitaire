@@ -31,5 +31,8 @@ private:
     int bonus;
     int movingPenalty;
     int penalty;
+
+    void setScoreMetrics(std::map<std::string, int> scoreMap);
+
 };
 

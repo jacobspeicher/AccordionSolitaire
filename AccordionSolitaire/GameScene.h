@@ -36,6 +36,9 @@ public:
 private:
 	Game* game;
 
+	// get all the scores after settling the game
+	std::map<std::string, int> getFinalMetrics();
+
 	// process the left mouse button
 	void processLMBClicked(sf::Vector2f mousePos);
 

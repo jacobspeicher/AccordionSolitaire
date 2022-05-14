@@ -35,6 +35,7 @@ enum class PlayEvents {
 };
 
 enum class GameOverEvents {
+	SettleScore,
 	ReturnToMainMenu,
 	ResetGame,
 	Quit,

@@ -149,7 +149,7 @@ bool Game::IsGameOver()
 	return states.back().getGameOver();
 }
 
-void Game::SettleGame()
+std::map<std::string, int> Game::SettleGame()
 {
 	bonus = stacks[0].getSize() * 3;
 	for (int i = 1; i < emptyEnabledStack; ++i)
@@ -158,6 +158,14 @@ void Game::SettleGame()
 	}
 
 	finalScore = score + bonus - penalty;
+	std::map<std::string, int> scoreMap;
+	scoreMap["finalScore"] = finalScore;
+	scoreMap["stackedPoints"] = stackedPoints;
+	scoreMap["bonus"] = bonus;
+	scoreMap["movingPenalty"] = movingPenalty;
+	scoreMap["penalty"] = penalty;
+
+	return scoreMap;
 }
 
 // getters

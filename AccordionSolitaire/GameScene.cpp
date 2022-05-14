@@ -29,7 +29,7 @@ void GameScene::Update(CustomEvent event)
 
 	if (event.screen == Screen::Play)
 	{
-		switch (static_cast<PlayEvents>(event.eventData))
+		switch (static_cast<PlayEvents>(event.event))
 		{
 		case PlayEvents::ResetGame:
 			ResetGame();
@@ -38,8 +38,14 @@ void GameScene::Update(CustomEvent event)
 
 	if (game->IsGameOver())
 	{
-		CustomEvent newEvent(Screen::Global, static_cast<int>(GlobalEvents::GameOver));
-		EventManager::QueueEvent(newEvent);
+		game->SettleGame();
+
+		std::map<std::string, int> scores = getFinalMetrics();
+		CustomEvent gameOverEvent(Screen::Global, static_cast<int>(GlobalEvents::GameOver));
+		CustomEvent settleScoreEvent(Screen::GameOver, static_cast<int>(GameOverEvents::SettleScore), scores);
+
+		EventManager::QueueEvent(gameOverEvent);
+		EventManager::QueueEvent(settleScoreEvent);
 	}
 }
 
@@ -116,6 +122,11 @@ void GameScene::ResetGame()
 #pragma endregion GameAccess
 
 #pragma region private
+std::map<std::string, int> GameScene::getFinalMetrics()
+{
+	return game->SettleGame();
+}
+
 void GameScene::processLMBClicked(sf::Vector2f mousePos)
 {
 	if (game->deck->deckPile.getGlobalBounds().contains(mousePos))

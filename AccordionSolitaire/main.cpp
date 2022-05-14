@@ -56,7 +56,7 @@ int main()
 		CustomEvent nextEvent = EventManager::DequeueEvent();
 		if (nextEvent.screen == Screen::Global)
 		{
-			GlobalEvents event = static_cast<GlobalEvents>(nextEvent.eventData);
+			GlobalEvents event = static_cast<GlobalEvents>(nextEvent.event);
 			switch (event)
 			{
 			case GlobalEvents::PlayGame:

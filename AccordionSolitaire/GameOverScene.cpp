@@ -29,14 +29,7 @@ void GameOverScene::Setup()
 	}
 
 	text["finalScore"]->setCharacterSize(22);
-	text["finalScore"]->setString("Final Score : " + std::to_string(finalScore));
-
 	text["metrics"]->setCharacterSize(18);
-	std::string metrics = "Stacking Points : " + std::to_string(stackedPoints) + "\n";
-	metrics += "Bonus Points : " + std::to_string(bonus) + "\n";
-	metrics += "Moving Penalty : " + std::to_string(-1 * movingPenalty) + "\n";
-	metrics += "Unstacked Penalty : " + std::to_string(-1 * penalty);
-	text["metrics"]->setString(metrics);
 
 	sf::Vector2f cardPos(window->getSize().x / 2, window->getSize().y / 2);
 
@@ -51,6 +44,16 @@ void GameOverScene::Setup()
 void GameOverScene::Update(CustomEvent event)
 {
 	Draw();
+
+	if (event.screen == Screen::GameOver)
+	{
+		switch (static_cast<GameOverEvents>(event.event))
+		{
+		case GameOverEvents::SettleScore:
+			setScoreMetrics(event.data);
+			break;
+		}
+	}
 }
 
 void GameOverScene::Draw()
@@ -67,3 +70,22 @@ void GameOverScene::Draw()
 void GameOverScene::ProcessMouse(sf::Event event)
 {}
 #pragma endregion SceneRequired
+
+#pragma region private
+void GameOverScene::setScoreMetrics(std::map<std::string, int> scoreMap)
+{
+	finalScore = scoreMap["finalScore"];
+	stackedPoints = scoreMap["stackedPoints"];
+	bonus = scoreMap["bonus"];
+	movingPenalty = scoreMap["movingPenalty"];
+	penalty = scoreMap["penalty"];
+
+	text["finalScore"]->setString("Final Score : " + std::to_string(finalScore));
+
+	std::string metrics = "Stacking Points : " + std::to_string(stackedPoints) + "\n";
+	metrics += "Bonus Points : " + std::to_string(bonus) + "\n";
+	metrics += "Moving Penalty : " + std::to_string(-1 * movingPenalty) + "\n";
+	metrics += "Unstacked Penalty : " + std::to_string(-1 * penalty);
+	text["metrics"]->setString(metrics);
+}
+#pragma endregion private
