@@ -1,4 +1,5 @@
 #include "GameScene.h"
+#include "EventManager.h"
 
 GameScene::GameScene(sf::RenderWindow& window) : Scene(window)
 {

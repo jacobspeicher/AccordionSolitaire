@@ -1,5 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "CustomEvent.h"
+#include "EventManager.h"
+#include "Enums.h"
 
 class Scene
 {

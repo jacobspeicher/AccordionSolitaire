@@ -57,5 +57,9 @@ void InstructionsScene::Draw()
 
 void InstructionsScene::ProcessMouse(sf::Event event)
 {
-
+	if (event.type == sf::Event::MouseButtonReleased)
+	{
+		CustomEvent event(CustomEventTypes::ChangeScene, static_cast<int>(MainMenuEvents::PlayGame));
+		EventManager::QueueEvent(event);
+	}
 }

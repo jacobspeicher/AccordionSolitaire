@@ -56,6 +56,5 @@ void GameUI::Draw()
 
 void GameUI::ProcessMouse(sf::Event event)
 {
-
 }
 #pragma endregion SceneRequired

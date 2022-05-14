@@ -8,10 +8,10 @@
 #include "GameScene.h"
 #include "InstructionsScene.h"
 #include "GameUI.h"
+#include "EventManager.h"
+#include "Enums.h"
 
 void processKeyboard(sf::RenderWindow& window, sf::Event event);
-
-bool started = false;
 
 int main()
 {
@@ -21,6 +21,9 @@ int main()
 	GameScene* gameScene = new GameScene(window);
 	GameUI* gameUI = new GameUI(window, *gameScene);
 	InstructionsScene* instrScene = new InstructionsScene(window);
+	EventManager::init();
+
+	Screen screen = Screen::Instructions;
 
 	// run the program as long as the window stays open
 	while (window.isOpen())
@@ -36,20 +39,37 @@ int main()
 			}
 
 			processKeyboard(window, event);
-			gameScene->ProcessMouse(event);
+			if (screen == Screen::Instructions)
+			{
+				instrScene->ProcessMouse(event);
+			}
+			if (screen == Screen::Play)
+			{
+				gameScene->ProcessMouse(event);
+			}
+		}
+
+		CustomEvent nextEvent = EventManager::DequeueEvent();
+		if (nextEvent.type == CustomEventTypes::ChangeScene)
+		{
+			MainMenuEvents event = static_cast<MainMenuEvents>(nextEvent.eventData);
+			switch (event)
+			{
+			case MainMenuEvents::PlayGame:
+				screen = Screen::Play;
+			}
 		}
 
 		window.clear(sf::Color::Color(0, 120, 0));
 
-		if (started)
-		{
-			gameUI->Draw();
-
-			gameScene->Draw();
-		}
-		else
+		if (screen == Screen::Instructions)
 		{
 			instrScene->Draw();
+		}
+		if (screen == Screen::Play)
+		{
+			gameUI->Draw();
+			gameScene->Draw();
 		}
 
 		window.display();
@@ -67,11 +87,9 @@ void processKeyboard(sf::RenderWindow& window, sf::Event event)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
-		started = false;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 	{
-		started = true;
 	}
 }

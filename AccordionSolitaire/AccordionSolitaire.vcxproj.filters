@@ -22,6 +22,18 @@
     <Filter Include="Header Files\Scenes">
       <UniqueIdentifier>{6214a2c3-e899-438f-8599-1c7b354f6248}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{388fbca3-68e0-4dbd-86f6-c1b9e06c90f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{343fb42d-0048-4c11-81c7-ce63553eef1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Global">
+      <UniqueIdentifier>{949a89b0-40fe-41ff-ae2a-dfd9cf32fb40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Global">
+      <UniqueIdentifier>{ad4ec5de-739c-4151-a348-11bb8424ec81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="bright.frag">
@@ -63,7 +75,13 @@
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="GameUI.cpp">
-      <Filter>Source Files\Scenes</Filter>
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Source Files\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,7 +110,16 @@
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="GameUI.h">
-      <Filter>Header Files\Scenes</Filter>
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Header Files\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>Header Files\Global</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
