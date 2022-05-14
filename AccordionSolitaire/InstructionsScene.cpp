@@ -5,6 +5,7 @@ InstructionsScene::InstructionsScene(sf::RenderWindow& window) : Scene(window)
 	Setup();
 }
 
+#pragma region SceneRequired
 void InstructionsScene::Setup()
 {
 	if (!font.loadFromFile("Assets/Fonts/Accordion.otf")) {}
@@ -40,6 +41,11 @@ void InstructionsScene::Setup()
 	text["start"]->setOrigin(sf::Vector2f(startBounds.width / 2, startBounds.height / 2));
 }
 
+void InstructionsScene::Update(CustomEvent event)
+{
+	Draw();
+}
+
 void InstructionsScene::Draw()
 {
 	sf::Vector2f center(window->getSize().x / 2, window->getSize().y / 2);
@@ -59,7 +65,8 @@ void InstructionsScene::ProcessMouse(sf::Event event)
 {
 	if (event.type == sf::Event::MouseButtonReleased)
 	{
-		CustomEvent event(CustomEventTypes::ChangeScene, static_cast<int>(MainMenuEvents::PlayGame));
+		CustomEvent event(Screen::MainMenu, static_cast<int>(MainMenuEvents::PlayGame));
 		EventManager::QueueEvent(event);
 	}
 }
+#pragma endregion SceneRequired

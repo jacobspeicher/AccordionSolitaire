@@ -4,10 +4,10 @@
 class CustomEvent
 {
 public:
-	CustomEventTypes type;
+	Screen screen;
 	int eventData;
 
 	CustomEvent();
-	CustomEvent(CustomEventTypes inType, int inEventData);
+	CustomEvent(Screen inScreen, int inEventData);
 };
 

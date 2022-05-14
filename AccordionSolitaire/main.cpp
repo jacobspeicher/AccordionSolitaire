@@ -45,12 +45,13 @@ int main()
 			}
 			if (screen == Screen::Play)
 			{
+				gameUI->ProcessKeyboard(event);
 				gameScene->ProcessMouse(event);
 			}
 		}
 
 		CustomEvent nextEvent = EventManager::DequeueEvent();
-		if (nextEvent.type == CustomEventTypes::ChangeScene)
+		if (nextEvent.screen == Screen::MainMenu)
 		{
 			MainMenuEvents event = static_cast<MainMenuEvents>(nextEvent.eventData);
 			switch (event)
@@ -64,12 +65,12 @@ int main()
 
 		if (screen == Screen::Instructions)
 		{
-			instrScene->Draw();
+			instrScene->Update(nextEvent);
 		}
 		if (screen == Screen::Play)
 		{
-			gameUI->Draw();
-			gameScene->Draw();
+			gameUI->Update(nextEvent);
+			gameScene->Update(nextEvent);
 		}
 
 		window.display();

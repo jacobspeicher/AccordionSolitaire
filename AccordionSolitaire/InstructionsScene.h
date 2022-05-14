@@ -12,6 +12,9 @@ public:
     // setup the instructions screen
     void Setup();
 
+    // update the instructions screen every frame
+    void Update(CustomEvent event);
+
     // draw the instructions screen
     void Draw();
 

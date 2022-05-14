@@ -1,16 +1,12 @@
 #pragma once
 
 enum class Screen {
+	null,
 	MainMenu,
 	Instructions,
 	Options,
 	Play,
 	GameOver,
-};
-
-enum class CustomEventTypes {
-	null,
-	ChangeScene,
 };
 
 enum class MainMenuEvents {
@@ -29,7 +25,7 @@ enum class OptionsEvents {
 };
 
 enum class PlayEvents {
-
+	ResetGame,
 };
 
 enum class GameOverEvents {

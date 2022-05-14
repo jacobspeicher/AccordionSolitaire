@@ -2,12 +2,12 @@
 
 CustomEvent::CustomEvent()
 {
-	type = CustomEventTypes::null;
+	screen = Screen::null;
 	eventData = 0;
 }
 
-CustomEvent::CustomEvent(CustomEventTypes inType, int inEventData)
+CustomEvent::CustomEvent(Screen inScreen, int inEventData)
 {
-	type = inType;
+	screen = inScreen;
 	eventData = inEventData;
 }

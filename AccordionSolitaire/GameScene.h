@@ -12,6 +12,9 @@ public:
 	// setup the game scene
 	void Setup();
 
+	// update the game screen every frame
+	void Update(CustomEvent event);
+
 	// draw things on the screen
 	void Draw();
 
@@ -25,6 +28,9 @@ public:
 
 	// access the deck size from the game
 	int GetCardsLeft();
+
+	// reset the game
+	void ResetGame();
 #pragma endregion GameAccess
 
 private:

@@ -42,6 +42,11 @@ void GameUI::Setup()
 	text["version"]->setPosition(sf::Vector2f(20, 1050));
 }
 
+void GameUI::Update(CustomEvent event)
+{
+	Draw();
+}
+
 void GameUI::Draw()
 {
 	text["score"]->setString("Score : " + std::to_string(scene->GetScore()));
@@ -56,5 +61,14 @@ void GameUI::Draw()
 
 void GameUI::ProcessMouse(sf::Event event)
 {
+}
+
+void GameUI::ProcessKeyboard(sf::Event event)
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+	{
+		CustomEvent event(Screen::Play, static_cast<int>(PlayEvents::ResetGame));
+		EventManager::QueueEvent(event);
+	}
 }
 #pragma endregion SceneRequired

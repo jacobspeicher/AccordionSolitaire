@@ -11,6 +11,7 @@ public:
 	Scene(sf::RenderWindow& inWindow);
 
 	virtual void Setup() = 0;
+	virtual void Update(CustomEvent event) = 0;
 	virtual void Draw() = 0;
 	virtual void ProcessMouse(sf::Event event) = 0;
 

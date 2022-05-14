@@ -23,6 +23,20 @@ void GameScene::Setup()
 	shaders["Deck"]->setUniform("alpha", 0.5f);
 }
 
+void GameScene::Update(CustomEvent event)
+{
+	Draw();
+
+	if (event.screen == Screen::Play)
+	{
+		switch (static_cast<PlayEvents>(event.eventData))
+		{
+		case PlayEvents::ResetGame:
+			ResetGame();
+		}
+	}
+}
+
 void GameScene::Draw()
 {
 	for (int i = 0; i <= game->getRightmostStack(); ++i)
@@ -87,6 +101,11 @@ int GameScene::GetScore()
 int GameScene::GetCardsLeft()
 {
 	return game->deck->cards.size();
+}
+
+void GameScene::ResetGame()
+{
+	game->Reset(*window);
 }
 #pragma endregion GameAccess
 
