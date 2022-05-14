@@ -7,6 +7,7 @@
 #include "Game.h"
 #include "GameScene.h"
 #include "InstructionsScene.h"
+#include "GameOverScene.h"
 #include "GameUI.h"
 #include "EventManager.h"
 #include "Enums.h"
@@ -21,6 +22,8 @@ int main()
 	GameScene* gameScene = new GameScene(window);
 	GameUI* gameUI = new GameUI(window, *gameScene);
 	InstructionsScene* instrScene = new InstructionsScene(window);
+	GameOverScene* gameOverScene = new GameOverScene(window);
+
 	EventManager::init();
 
 	Screen screen = Screen::Instructions;
@@ -51,13 +54,17 @@ int main()
 		}
 
 		CustomEvent nextEvent = EventManager::DequeueEvent();
-		if (nextEvent.screen == Screen::MainMenu)
+		if (nextEvent.screen == Screen::Global)
 		{
-			MainMenuEvents event = static_cast<MainMenuEvents>(nextEvent.eventData);
+			GlobalEvents event = static_cast<GlobalEvents>(nextEvent.eventData);
 			switch (event)
 			{
-			case MainMenuEvents::PlayGame:
+			case GlobalEvents::PlayGame:
 				screen = Screen::Play;
+				break;
+			case GlobalEvents::GameOver:
+				screen = Screen::GameOver;
+				break;
 			}
 		}
 
@@ -71,6 +78,12 @@ int main()
 		{
 			gameUI->Update(nextEvent);
 			gameScene->Update(nextEvent);
+		}
+		if (screen == Screen::GameOver)
+		{
+			gameUI->Draw();
+			gameScene->Draw();
+			gameOverScene->Update(nextEvent);
 		}
 
 		window.display();

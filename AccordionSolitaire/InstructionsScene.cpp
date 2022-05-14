@@ -65,7 +65,7 @@ void InstructionsScene::ProcessMouse(sf::Event event)
 {
 	if (event.type == sf::Event::MouseButtonReleased)
 	{
-		CustomEvent event(Screen::MainMenu, static_cast<int>(MainMenuEvents::PlayGame));
+		CustomEvent event(Screen::Global, static_cast<int>(GlobalEvents::PlayGame));
 		EventManager::QueueEvent(event);
 	}
 }

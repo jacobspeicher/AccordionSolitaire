@@ -2,6 +2,7 @@
 
 enum class Screen {
 	null,
+	Global,
 	MainMenu,
 	Instructions,
 	Options,
@@ -9,11 +10,16 @@ enum class Screen {
 	GameOver,
 };
 
+enum class GlobalEvents {
+	PlayGame,
+	GameOver,
+	ReturnToMenu,
+	Quit,
+};
+
 enum class MainMenuEvents {
 	OpenInstructions,
 	OpenOptions,
-	PlayGame,
-	Quit,
 };
 
 enum class InstructionsEvents {

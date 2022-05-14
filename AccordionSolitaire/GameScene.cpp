@@ -35,6 +35,12 @@ void GameScene::Update(CustomEvent event)
 			ResetGame();
 		}
 	}
+
+	if (game->IsGameOver())
+	{
+		CustomEvent newEvent(Screen::Global, static_cast<int>(GlobalEvents::GameOver));
+		EventManager::QueueEvent(newEvent);
+	}
 }
 
 void GameScene::Draw()

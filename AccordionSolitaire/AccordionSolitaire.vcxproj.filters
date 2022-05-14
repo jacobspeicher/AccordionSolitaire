@@ -83,6 +83,9 @@
     <ClCompile Include="EventManager.cpp">
       <Filter>Source Files\Global</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">
@@ -120,6 +123,9 @@
     </ClInclude>
     <ClInclude Include="Enums.h">
       <Filter>Header Files\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScene.h">
+      <Filter>Header Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
