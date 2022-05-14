@@ -36,7 +36,7 @@ void InstructionsScene::Setup()
 	text["instr"]->setString(textStr);
 	text["instr"]->setPosition(sf::Vector2f(500, 300));
 
-	text["start"]->setString("Press Enter to Start");
+	text["start"]->setString("Click to Start");
 	sf::FloatRect startBounds = text["start"]->getLocalBounds();
 	text["start"]->setOrigin(sf::Vector2f(startBounds.width / 2, startBounds.height / 2));
 }
