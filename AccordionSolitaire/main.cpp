@@ -85,12 +85,4 @@ void processKeyboard(sf::RenderWindow& window, sf::Event event)
 	{
 		window.close();
 	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-	{
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
-	{
-	}
 }
