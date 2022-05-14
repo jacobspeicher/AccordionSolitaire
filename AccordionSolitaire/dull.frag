@@ -1,4 +1,5 @@
 uniform sampler2D texture;
+uniform float alpha;
 
 void main()
 {
@@ -6,7 +7,7 @@ void main()
 	vec4 pixel = texture2D(texture, gl_TexCoord[0].xy);
 
 	// multiply by the color
-	vec4 color = vec4((gl_Color * pixel).rgb, 0.5);
+	vec4 color = vec4((gl_Color * pixel).rgb, alpha);
 
 	gl_FragColor = color;
 }

@@ -149,7 +149,7 @@ bool Game::IsGameOver()
 	return states.back().getGameOver();
 }
 
-void Game::SettleGame()
+std::map<std::string, int> Game::SettleGame()
 {
 	bonus = stacks[0].getSize() * 3;
 	for (int i = 1; i < emptyEnabledStack; ++i)
@@ -158,43 +158,14 @@ void Game::SettleGame()
 	}
 
 	finalScore = score + bonus - penalty;
-}
+	std::map<std::string, int> scoreMap;
+	scoreMap["finalScore"] = finalScore;
+	scoreMap["stackedPoints"] = stackedPoints;
+	scoreMap["bonus"] = bonus;
+	scoreMap["movingPenalty"] = movingPenalty;
+	scoreMap["penalty"] = penalty;
 
-void Game::DrawGameOverScreen(sf::RenderWindow& window)
-{
-	sf::Text finalScoreText;
-	sf::Text metricsText;
-
-	finalScoreText.setFont(font);
-	metricsText.setFont(font);
-
-	finalScoreText.setCharacterSize(22);
-	metricsText.setCharacterSize(18);
-
-	finalScoreText.setFillColor(sf::Color::Black);
-	metricsText.setFillColor(sf::Color::Black);
-
-	finalScoreText.setString("Final Score : " + std::to_string(finalScore));
-	
-	std::string metrics = "Stacking Points : " + std::to_string(stackedPoints) + "\n";
-	metrics += "Bonus Points : " + std::to_string(bonus) + "\n";
-	metrics += "Moving Penalty : " + std::to_string(-1 * movingPenalty) + "\n";
-	metrics += "Unstacked Penalty : " + std::to_string(-1 * penalty);
-	metricsText.setString(metrics);
-
-	sf::Vector2f cardPos(window.getSize().x / 2, window.getSize().y / 2);
-
-	Card endCard;
-	endCard.sprite.setPosition(cardPos);
-	endCard.sprite.setRotation(90);
-	endCard.sprite.setScale(sf::Vector2f(2, 2));
-
-	finalScoreText.setPosition(sf::Vector2f(cardPos.x - 200, cardPos.y - 100));
-	metricsText.setPosition(sf::Vector2f(cardPos.x - 200, cardPos.y - 50));
-
-	window.draw(endCard.sprite);
-	window.draw(finalScoreText);
-	window.draw(metricsText);
+	return scoreMap;
 }
 
 // getters
