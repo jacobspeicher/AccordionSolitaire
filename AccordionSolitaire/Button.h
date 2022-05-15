@@ -16,6 +16,12 @@ public:
 	// check if the button contains a certain point
 	bool Contains(sf::Vector2f pos);
 
+	// change the button back when hovered
+	void Hovered(bool isHovered);
+
+	// change the button back when clicked
+	void Clicked(bool isClicked);
+
 private:
 	sf::RenderWindow* window;
 	sf::Font font;

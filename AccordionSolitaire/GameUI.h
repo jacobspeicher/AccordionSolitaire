@@ -28,5 +28,14 @@ public:
 private:
     int score;
     int cardsLeft;
+
+    // process left mouse button click
+    void processLMBClicked(sf::Vector2f mousePos);
+
+    // process left mouse button held
+    void processLMBHeld(sf::Vector2f mousePos);
+
+    // process mouse movement
+    void processMouseMoved(sf::Vector2f mousePos);
 };
 
