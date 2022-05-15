@@ -215,7 +215,7 @@ void GameScene::processMouseMoved(sf::Vector2f mousePos)
 		shaders["Card"]->setUniform("alpha", 0.5f);
 	}
 
-	for (int i = 0; i < game->getRightmostStack(); ++i)
+	for (int i = 0; i <= game->getRightmostStack(); ++i)
 	{
 		if (game->stacks[i].getBaseStackSprite().getGlobalBounds().contains(mousePos))
 		{
