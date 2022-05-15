@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Game.h"
+#include "GameUI.h"
 
 class GameScene : protected Scene
 {
@@ -35,6 +36,7 @@ public:
 
 private:
 	Game* game;
+	GameUI* gameUI;
 
 	// get all the scores after settling the game
 	std::map<std::string, int> getFinalMetrics();

@@ -20,7 +20,6 @@ int main()
 	window.setFramerateLimit(60);
 
 	GameScene* gameScene = new GameScene(window);
-	GameUI* gameUI = new GameUI(window, *gameScene);
 	InstructionsScene* instrScene = new InstructionsScene(window);
 	GameOverScene* gameOverScene = new GameOverScene(window);
 
@@ -48,7 +47,6 @@ int main()
 			}
 			if (screen == Screen::Play)
 			{
-				gameUI->ProcessKeyboard(event);
 				gameScene->ProcessMouse(event);
 			}
 		}
@@ -76,12 +74,10 @@ int main()
 		}
 		if (screen == Screen::Play)
 		{
-			gameUI->Update(nextEvent);
 			gameScene->Update(nextEvent);
 		}
 		if (screen == Screen::GameOver)
 		{
-			gameUI->Draw();
 			gameScene->Draw();
 			gameOverScene->Update(nextEvent);
 		}

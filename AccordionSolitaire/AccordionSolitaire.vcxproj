@@ -156,6 +156,7 @@
     <None Include="dull.frag" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CustomEvent.cpp" />
     <ClCompile Include="Deck.cpp" />
@@ -169,8 +170,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CustomEvent.h" />
     <ClInclude Include="Deck.h" />
@@ -184,6 +187,7 @@
     <ClInclude Include="InstructionsScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="UserInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,6 +10,7 @@ GameScene::GameScene(sf::RenderWindow& window) : Scene(window)
 void GameScene::Setup()
 {
 	game = new Game(*window);
+	gameUI = new GameUI(*window);
 
 	shaders["Card"] = new sf::Shader();
 	shaders["Deck"] = new sf::Shader();
@@ -26,6 +27,9 @@ void GameScene::Setup()
 void GameScene::Update(CustomEvent event)
 {
 	Draw();
+
+	gameUI->SetScore(game->getScore());
+	gameUI->SetCardsLeft(game->deck->cards.size());
 
 	if (event.screen == Screen::Play)
 	{
@@ -51,6 +55,8 @@ void GameScene::Update(CustomEvent event)
 
 void GameScene::Draw()
 {
+	gameUI->Draw();
+
 	for (int i = 0; i <= game->getRightmostStack(); ++i)
 	{
 		if (game->getStackPickedUp() && i == game->getPickedStackIndex())
@@ -87,6 +93,8 @@ void GameScene::Draw()
 
 void GameScene::ProcessMouse(sf::Event event)
 {
+	gameUI->ProcessMouse(event);
+
 	sf::Vector2f mousePos = static_cast<sf::Vector2f>(sf::Mouse::getPosition(*window));
 
 	if (event.type == sf::Event::MouseButtonReleased)

@@ -34,6 +34,18 @@
     <Filter Include="Header Files\Global">
       <UniqueIdentifier>{ad4ec5de-739c-4151-a348-11bb8424ec81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{6d5853da-ae97-4119-916a-5eb2f170bb51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\UI">
+      <UniqueIdentifier>{a4349748-12a1-4204-a06b-a700bfc36d9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{dbbb6796-3fe6-4906-b011-3e136936f02a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\UI">
+      <UniqueIdentifier>{ce936e1e-cf06-4c08-a723-bcb9af2cf7f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="bright.frag">
@@ -86,6 +98,12 @@
     <ClCompile Include="GameOverScene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Objects\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">
@@ -126,6 +144,12 @@
     </ClInclude>
     <ClInclude Include="GameOverScene.h">
       <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Objects\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
