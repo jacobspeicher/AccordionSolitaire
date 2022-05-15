@@ -20,12 +20,12 @@ void Button::Setup()
 	text->setFillColor(sf::Color::Black);
 
 	back = new sf::RectangleShape();
-	sf::Vector2f size(text->getLocalBounds().width, text->getLocalBounds().height);
+	sf::Vector2f size(text->getLocalBounds().width + 20, text->getLocalBounds().height + 20);
 	back->setSize(size);
 	back->setFillColor(sf::Color::White);
 
 	text->setPosition(btnPos);
-	back->setPosition(btnPos);
+	back->setPosition(sf::Vector2f(btnPos.x - 10, btnPos.y - 10));
 }
 
 void Button::Draw()
