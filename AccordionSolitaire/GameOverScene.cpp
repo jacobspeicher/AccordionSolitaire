@@ -52,6 +52,12 @@ void GameOverScene::Update(CustomEvent event)
 		case GameOverEvents::SettleScore:
 			setScoreMetrics(event.data);
 			break;
+		case GameOverEvents::ResetGame:
+			CustomEvent changeScreen(Screen::Global, static_cast<int>(GlobalEvents::PlayGame));
+			CustomEvent resetGame(Screen::Play, static_cast<int>(PlayEvents::ResetGame));
+			EventManager::QueueEvent(changeScreen);
+			EventManager::QueueEvent(resetGame);
+			break;
 		}
 	}
 }

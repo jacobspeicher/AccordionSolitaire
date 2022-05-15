@@ -1,32 +1,41 @@
 #pragma once
-#include "Scene.h"
-#include "GameScene.h"
+#include "UserInterface.h"
 
 class GameUI :
-    protected Scene
+    protected UserInterface
 {
 public:
     // constructor
-    GameUI(sf::RenderWindow& window, GameScene& scene);
+    GameUI(sf::RenderWindow& window);
 
-#pragma region SceneRequired
+#pragma region UserInterfaceRequired
     // set up the game ui
     void Setup();
-
-    // update the UI every frame
-    void Update(CustomEvent event);
 
     // draw the game ui
     void Draw();
 
     // process mouse events
     void ProcessMouse(sf::Event event);
-#pragma endregion SceneRequired
+#pragma endregion UserInterfaceRequired
 
-    // process keyboard events
-    void ProcessKeyboard(sf::Event event);
+    // set score
+    void SetScore(int inScore);
+
+    // set cards left
+    void SetCardsLeft(int inCardsLeft);
 
 private:
-    GameScene* scene;
+    int score;
+    int cardsLeft;
+
+    // process left mouse button click
+    void processLMBClicked(sf::Vector2f mousePos);
+
+    // process left mouse button held
+    void processLMBHeld(sf::Vector2f mousePos);
+
+    // process mouse movement
+    void processMouseMoved(sf::Vector2f mousePos);
 };
 
