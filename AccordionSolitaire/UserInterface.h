@@ -22,5 +22,8 @@ public:
 	virtual void ProcessMouse(sf::Event event) = 0;
 
 private:
+	virtual void processLMBClicked(sf::Vector2f mousePos) = 0;
+	virtual void processLMBHeld(sf::Vector2f mousePos) = 0;
+	virtual void processMouseMoved(sf::Vector2f mousePos) = 0;
 };
 
