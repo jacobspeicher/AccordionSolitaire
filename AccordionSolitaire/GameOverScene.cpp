@@ -2,6 +2,7 @@
 
 GameOverScene::GameOverScene(sf::RenderWindow& window) : Scene(window)
 {
+	gameOverUI = new GameOverUI(window);
 	backCard = new Card();
 
 	finalScore = 0;
@@ -44,18 +45,27 @@ void GameOverScene::Setup()
 void GameOverScene::Update(CustomEvent event)
 {
 	Draw();
+	gameOverUI->Draw();
 
 	if (event.screen == Screen::GameOver)
 	{
+		CustomEvent* changeScreen;
 		switch (static_cast<GameOverEvents>(event.event))
 		{
 		case GameOverEvents::SettleScore:
 			setScoreMetrics(event.data);
 			break;
+		case GameOverEvents::Quit:
+			window->close();
+			break;
+		case GameOverEvents::ReturnToMainMenu:
+			changeScreen = new CustomEvent(Screen::Global, static_cast<int>(GlobalEvents::ReturnToMenu));
+			EventManager::QueueEvent(*changeScreen);
+			break;
 		case GameOverEvents::ResetGame:
-			CustomEvent changeScreen(Screen::Global, static_cast<int>(GlobalEvents::PlayGame));
+			changeScreen = new CustomEvent(Screen::Global, static_cast<int>(GlobalEvents::PlayGame));
 			CustomEvent resetGame(Screen::Play, static_cast<int>(PlayEvents::ResetGame));
-			EventManager::QueueEvent(changeScreen);
+			EventManager::QueueEvent(*changeScreen);
 			EventManager::QueueEvent(resetGame);
 			break;
 		}
@@ -74,7 +84,9 @@ void GameOverScene::Draw()
 }
 
 void GameOverScene::ProcessMouse(sf::Event event)
-{}
+{
+	gameOverUI->ProcessMouse(event);
+}
 #pragma endregion SceneRequired
 
 #pragma region private

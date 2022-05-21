@@ -19,11 +19,11 @@ public:
 
 	virtual void Setup() = 0;
 	virtual void Draw() = 0;
-	virtual void ProcessMouse(sf::Event event) = 0;
+	void ProcessMouse(sf::Event event);
 
-private:
-	virtual void processLMBClicked(sf::Vector2f mousePos) = 0;
-	virtual void processLMBHeld(sf::Vector2f mousePos) = 0;
-	virtual void processMouseMoved(sf::Vector2f mousePos) = 0;
+protected:
+	void processLMBClicked(sf::Vector2f mousePos);
+	void processLMBHeld(sf::Vector2f mousePos);
+	void processMouseMoved(sf::Vector2f mousePos);
 };
 

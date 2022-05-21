@@ -2,7 +2,7 @@
 #include "UserInterface.h"
 
 class GameUI :
-    protected UserInterface
+    public UserInterface
 {
 public:
     // constructor
@@ -16,7 +16,7 @@ public:
     void Draw();
 
     // process mouse events
-    void ProcessMouse(sf::Event event);
+    //void ProcessMouse(sf::Event event);
 #pragma endregion UserInterfaceRequired
 
     // set score
@@ -30,12 +30,12 @@ private:
     int cardsLeft;
 
     // process left mouse button click
-    void processLMBClicked(sf::Vector2f mousePos);
+    //void processLMBClicked(sf::Vector2f mousePos);
 
     // process left mouse button held
-    void processLMBHeld(sf::Vector2f mousePos);
+    //void processLMBHeld(sf::Vector2f mousePos);
 
     // process mouse movement
-    void processMouseMoved(sf::Vector2f mousePos);
+    //void processMouseMoved(sf::Vector2f mousePos);
 };
 
