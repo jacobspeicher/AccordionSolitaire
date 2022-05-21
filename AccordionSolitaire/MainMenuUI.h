@@ -24,4 +24,3 @@ private:
     // process mouse movement
     void processMouseMoved(sf::Vector2f mousePos);
 };
-
