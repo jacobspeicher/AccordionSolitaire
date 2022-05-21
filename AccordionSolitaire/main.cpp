@@ -30,7 +30,7 @@ int main()
 
 	EventManager::init();
 
-	Screen screen = Screen::MainMenu;
+	Screen screen = Screen::GameOver;
 
 	// run the program as long as the window stays open
 	while (window.isOpen())
@@ -58,6 +58,10 @@ int main()
 			{
 				gameScene->ProcessMouse(event);
 			}
+			if (screen == Screen::GameOver)
+			{
+				gameOverScene->ProcessMouse(event);
+			}
 		}
 
 		CustomEvent nextEvent = EventManager::DequeueEvent();
@@ -71,6 +75,9 @@ int main()
 				break;
 			case GlobalEvents::GameOver:
 				screen = Screen::GameOver;
+				break;
+			case GlobalEvents::ReturnToMenu:
+				screen = Screen::MainMenu;
 				break;
 			}
 		}

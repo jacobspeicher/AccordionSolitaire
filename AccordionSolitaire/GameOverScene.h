@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Card.h"
+#include "GameOverUI.h"
 
 class GameOverScene :
     public Scene
@@ -24,6 +25,7 @@ public:
 #pragma endregion SceneRequired
 
 private:
+    GameOverUI* gameOverUI;
     Card* backCard;
     
     int finalScore;

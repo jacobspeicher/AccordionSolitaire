@@ -13,14 +13,14 @@ public:
     void Draw();
 
     // process mouse events
-    void ProcessMouse(sf::Event event);
+    //void ProcessMouse(sf::Event event);
 private:
     // process left mouse button click
-    void processLMBClicked(sf::Vector2f mousePos);
+    //void processLMBClicked(sf::Vector2f mousePos);
 
     // process left mouse button held
-    void processLMBHeld(sf::Vector2f mousePos);
+    //void processLMBHeld(sf::Vector2f mousePos);
 
     // process mouse movement
-    void processMouseMoved(sf::Vector2f mousePos);
+    //void processMouseMoved(sf::Vector2f mousePos);
 };
