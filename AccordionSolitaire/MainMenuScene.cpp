@@ -13,7 +13,28 @@ void MainMenuScene::Setup()
 
 void MainMenuScene::Update(CustomEvent event)
 {
-	
+	Draw();
+
+	if (event.screen == Screen::MainMenu)
+	{
+		CustomEvent* menuEvent = new CustomEvent();
+
+		switch (static_cast<MainMenuEvents>(event.event))
+		{
+		case MainMenuEvents::PlayGame:
+			menuEvent = new CustomEvent(Screen::Global, static_cast<int>(GlobalEvents::PlayGame));
+			break;
+		case MainMenuEvents::OpenInstructions:
+			break;
+		case MainMenuEvents::OpenOptions:
+			break;
+		case MainMenuEvents::Quit:
+			window->close();
+			break;
+		}
+
+		EventManager::QueueEvent(*menuEvent);
+	}
 }
 
 void MainMenuScene::Draw()

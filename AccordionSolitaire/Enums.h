@@ -18,8 +18,10 @@ enum class GlobalEvents {
 };
 
 enum class MainMenuEvents {
+	PlayGame,
 	OpenInstructions,
 	OpenOptions,
+	Quit,
 };
 
 enum class InstructionsEvents {

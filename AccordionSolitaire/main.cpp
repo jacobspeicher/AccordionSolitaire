@@ -4,13 +4,15 @@
 #include <SFML/Graphics/Color.hpp>
 #include <iostream>
 
-#include "Game.h"
-#include "GameScene.h"
-#include "InstructionsScene.h"
-#include "GameOverScene.h"
-#include "GameUI.h"
 #include "EventManager.h"
 #include "Enums.h"
+
+#include "MainMenuScene.h"
+#include "InstructionsScene.h"
+#include "GameScene.h"
+#include "GameOverScene.h"
+
+#include "Game.h"
 
 void processKeyboard(sf::RenderWindow& window, sf::Event event);
 
@@ -19,13 +21,16 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Accordion Solitaire", sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(60);
 
-	GameScene* gameScene = new GameScene(window);
+	MainMenuScene* mainMenuScene = new MainMenuScene(window);
 	InstructionsScene* instrScene = new InstructionsScene(window);
+
+	GameScene* gameScene = new GameScene(window);
+
 	GameOverScene* gameOverScene = new GameOverScene(window);
 
 	EventManager::init();
 
-	Screen screen = Screen::Instructions;
+	Screen screen = Screen::MainMenu;
 
 	// run the program as long as the window stays open
 	while (window.isOpen())
@@ -41,6 +46,10 @@ int main()
 			}
 
 			processKeyboard(window, event);
+			if (screen == Screen::MainMenu)
+			{
+				mainMenuScene->ProcessMouse(event);
+			}
 			if (screen == Screen::Instructions)
 			{
 				instrScene->ProcessMouse(event);
@@ -68,6 +77,10 @@ int main()
 
 		window.clear(sf::Color::Color(0, 120, 0));
 
+		if (screen == Screen::MainMenu)
+		{
+			mainMenuScene->Update(nextEvent);
+		}
 		if (screen == Screen::Instructions)
 		{
 			instrScene->Update(nextEvent);
