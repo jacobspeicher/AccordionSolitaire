@@ -168,6 +168,8 @@
     <ClCompile Include="GameUI.cpp" />
     <ClCompile Include="InstructionsScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="MainMenuUI.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="UserInterface.cpp" />
@@ -185,6 +187,8 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameUI.h" />
     <ClInclude Include="InstructionsScene.h" />
+    <ClInclude Include="MainMenuScene.h" />
+    <ClInclude Include="MainMenuUI.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="UserInterface.h" />

@@ -104,6 +104,12 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files\Objects\UI</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuUI.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">
@@ -150,6 +156,12 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Header Files\Objects\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuScene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuUI.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

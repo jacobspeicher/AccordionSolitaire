@@ -11,13 +11,16 @@ Button::Button(sf::RenderWindow& inWindow, std::string inText, sf::Vector2f pos)
 
 void Button::Setup()
 {
-	if (!font.loadFromFile("Assets/Fonts/Accordion.otf")) {}
+	if (!font.loadFromFile("Assets/Fonts/arial.ttf")) {}
 	text = new sf::Text();
 
 	text->setFont(font);
 	text->setString(btnText);
-	text->setCharacterSize(18);
+	text->setCharacterSize(32);
 	text->setFillColor(sf::Color::White);
+
+	sf::Vector2f origin(text->getLocalBounds().width / 2, text->getLocalBounds().height / 2);
+	text->setOrigin(origin);
 
 	back = new sf::RectangleShape();
 	sf::Vector2f size(text->getLocalBounds().width + 20, text->getLocalBounds().height + 20);
@@ -25,8 +28,10 @@ void Button::Setup()
 	back->setFillColor(sf::Color::Black);
 	back->setOutlineColor(sf::Color::White);
 
+	back->setOrigin(origin);
+
 	text->setPosition(btnPos);
-	back->setPosition(sf::Vector2f(btnPos.x - 10, btnPos.y - 10));
+	back->setPosition(sf::Vector2f(btnPos.x - 10, btnPos.y));
 }
 
 void Button::Draw()
@@ -65,4 +70,14 @@ void Button::Clicked(bool isClicked)
 		back->setFillColor(sf::Color::Black);
 		text->setFillColor(sf::Color::White);
 	}
+}
+
+void Button::Fire()
+{
+	EventManager::QueueEvent(event);
+}
+
+void Button::setEvent(CustomEvent inEvent)
+{
+	event = inEvent;
 }

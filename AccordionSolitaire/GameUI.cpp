@@ -16,7 +16,6 @@ void GameUI::Setup()
 
 	text["score"] = new sf::Text();
 	text["cardsLeft"] = new sf::Text();
-	//text["reset"] = new sf::Text();
 
 	std::map<std::string, sf::Text*>::iterator itr;
 	for (itr = text.begin(); itr != text.end(); ++itr)
@@ -30,17 +29,16 @@ void GameUI::Setup()
 
 	text["title"]->setString("Accordion Solitaire");
 	text["subtitle"]->setString("by Jacob Speicher");
-	//text["reset"]->setString("R to Reset");
 	text["version"]->setString("v1.3.2");
 
 	text["title"]->setPosition(sf::Vector2f(250, 900));
 	text["subtitle"]->setPosition(sf::Vector2f(300, 950));
 	text["score"]->setPosition(sf::Vector2f(1500, 900));
 	text["cardsLeft"]->setPosition(sf::Vector2f(1500, 950));
-	//text["reset"]->setPosition(sf::Vector2f(1500, 1000));
 	text["version"]->setPosition(sf::Vector2f(20, 1050));
 
 	buttons["Reset"] = new Button(*window, "Reset", sf::Vector2f(1500, 1000));
+	buttons["Reset"]->setEvent(CustomEvent(Screen::Play, static_cast<int>(PlayEvents::ResetGame)));
 }
 
 void GameUI::Draw()
@@ -107,11 +105,7 @@ void GameUI::processLMBClicked(sf::Vector2f mousePos)
 		if (btnItr->second->Contains(mousePos))
 		{
 			btnItr->second->Clicked(false);
-			if (btnItr->first == "Reset")
-			{
-				CustomEvent event(Screen::Play, static_cast<int>(PlayEvents::ResetGame));
-				EventManager::QueueEvent(event);
-			}
+			btnItr->second->Fire();
 		}
 	}
 }
