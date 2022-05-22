@@ -27,13 +27,19 @@ void Card::CreateSprite()
 	}
 
 	sprite.setTexture(cardTexture);
-	sprite.setOrigin(sf::Vector2f(75, 125));
+	center = sf::Vector2f(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
+	sprite.setOrigin(center);
 }
 
 void Card::DrawOnScreen(sf::RenderWindow& window, sf::Vector2f position, sf::Shader& shader)
 {
 	sprite.setPosition(position);
 	window.draw(sprite, &shader);
+}
+
+void Card::ResetCenter()
+{
+	sprite.setOrigin(center);
 }
 
 // getter/setter
@@ -46,3 +52,4 @@ std::string Card::getTexturePath()
 {
 	return texturePath;
 }
+

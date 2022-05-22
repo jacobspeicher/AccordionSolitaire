@@ -42,7 +42,8 @@ void Stack::CreateSprite()
 	if (!baseStackTexture.loadFromFile(texturePath)) {}
 
 	baseStackSprite.setTexture(baseStackTexture);
-	baseStackSprite.setOrigin(sf::Vector2f(75.0f, 125.0f));
+	center = sf::Vector2f(baseStackSprite.getLocalBounds().width / 2, baseStackSprite.getLocalBounds().height / 2);
+	baseStackSprite.setOrigin(center);
 	baseStackSprite.setPosition(stackPosition);
 }
 
@@ -80,6 +81,11 @@ void Stack::ResetStackPosition()
 {
 	baseStackSprite.setPosition(stackPosition);
 	SetSizeText();
+}
+
+void Stack::ResetStackOrigin()
+{
+	baseStackSprite.setOrigin(center);
 }
 
 // getters
