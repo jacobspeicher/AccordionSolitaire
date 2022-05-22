@@ -30,7 +30,7 @@ int main()
 
 	EventManager::init();
 
-	Screen screen = Screen::GameOver;
+	Screen screen = Screen::MainMenu;
 
 	// run the program as long as the window stays open
 	while (window.isOpen())
