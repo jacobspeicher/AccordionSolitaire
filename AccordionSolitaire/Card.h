@@ -40,6 +40,7 @@ private:
 	char Suit[4] = { 'c', 'd', 'h', 's' };
 	std::string texturePath;
 	sf::Texture cardTexture;
-	sf::Vector2f center;
+
+	sf::Vector2f localCenter;
 };
 

@@ -9,7 +9,7 @@ Game::Game(sf::RenderWindow& window)
 void Game::Setup(sf::RenderWindow& window)
 {
 	locHand = sf::Vector2f(window.getSize().x / 2 + 90.0f, window.getSize().y - 126.0f);
-	locDeck = sf::Vector2f(window.getSize().x / 2 - 180.0f, window.getSize().y - 252.0f);
+	locDeck = sf::Vector2f(window.getSize().x / 2 - 90.0f, window.getSize().y - 126.0f);
 
 	score = 0;
 	deck = new Deck(false, locDeck);

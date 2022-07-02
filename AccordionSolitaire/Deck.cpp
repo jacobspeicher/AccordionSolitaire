@@ -57,6 +57,9 @@ void Deck::SetDeckSprite()
 {
 	if (!deckTexture.loadFromFile(deckBack)) {}
 	deckPile.setTexture(deckTexture);
+	deckPile.setOrigin(sf::Vector2f(deckPile.getLocalBounds().width / 2, deckPile.getLocalBounds().height / 2));
+	deckPile.setScale(sf::Vector2f(0.75, 0.75));
+
 	deckPile.setPosition(locDeck);
 }
 

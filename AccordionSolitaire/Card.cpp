@@ -15,7 +15,7 @@ Card::Card(int iValue, int iSuit)
 
 void Card::SetTexturePath()
 {
-	texturePath = "Assets/Cards/" + std::to_string(value) + static_cast<char>(Suit[suit]) + ".png";
+	texturePath = "Assets/SaraCards/" + std::to_string(value) + static_cast<char>(Suit[suit]) + ".png";
 }
 
 void Card::CreateSprite()
@@ -27,8 +27,9 @@ void Card::CreateSprite()
 	}
 
 	sprite.setTexture(cardTexture);
-	center = sf::Vector2f(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
-	sprite.setOrigin(center);
+	localCenter = sf::Vector2f(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
+	sprite.setOrigin(localCenter);
+	sprite.setScale(sf::Vector2f(0.75, 0.75));
 }
 
 void Card::DrawOnScreen(sf::RenderWindow& window, sf::Vector2f position, sf::Shader& shader)
@@ -39,7 +40,7 @@ void Card::DrawOnScreen(sf::RenderWindow& window, sf::Vector2f position, sf::Sha
 
 void Card::ResetCenter()
 {
-	sprite.setOrigin(center);
+	sprite.setOrigin(localCenter);
 }
 
 // getter/setter

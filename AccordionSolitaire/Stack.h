@@ -55,7 +55,8 @@ private:
 	std::vector<Card> cards;
 
 	sf::Vector2f stackPosition;
-	sf::Vector2f center;
+
+	sf::Vector2f localCenter;
 
 	std::string texturePath;
 	sf::Sprite baseStackSprite;
