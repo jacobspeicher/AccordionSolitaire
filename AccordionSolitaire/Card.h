@@ -29,6 +29,9 @@ public:
 	// draws the card on the screen at the given position
 	void DrawOnScreen(sf::RenderWindow& window, sf::Vector2f position, sf::Shader& shader);
 
+	// reset the origin for the sprite
+	void ResetCenter();
+
 	// getter and setter for texture path
 	void setTexturePath(std::string sTexturePath);
 	std::string getTexturePath();
@@ -37,5 +40,7 @@ private:
 	char Suit[4] = { 'c', 'd', 'h', 's' };
 	std::string texturePath;
 	sf::Texture cardTexture;
+
+	sf::Vector2f localCenter;
 };
 

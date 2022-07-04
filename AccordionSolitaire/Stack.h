@@ -21,6 +21,9 @@ public:
 	// reset the stack position (if it's picked up and not dropped in a valid location)
 	void ResetStackPosition();
 
+	// reset the stack origin
+	void ResetStackOrigin();
+
 	// getter and setter for stack position
 	void setStackPosition(sf::Vector2f vStackPosition);
 	sf::Vector2f getStackPosition();
@@ -52,6 +55,8 @@ private:
 	std::vector<Card> cards;
 
 	sf::Vector2f stackPosition;
+
+	sf::Vector2f localCenter;
 
 	std::string texturePath;
 	sf::Sprite baseStackSprite;

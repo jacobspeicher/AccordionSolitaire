@@ -181,7 +181,8 @@ void GameScene::processLMBClicked(sf::Vector2f mousePos)
 				{
 					float xPos = mousePos.x - game->stacks[i].getBaseStackSprite().getGlobalBounds().left;
 					float yPos = mousePos.y - game->stacks[i].getBaseStackSprite().getGlobalBounds().top;
-					game->stacks[i].setSpriteOrigin(sf::Vector2f(xPos, yPos));
+					game->stacks[i].setSpriteOrigin(sf::Vector2f(xPos / float(0.75), yPos / float(0.75)));
+					// std::cout << game->stacks[i].getBaseStackSprite().getOrigin().x << ", " << game->stacks[i].getBaseStackSprite().getOrigin().y << std::endl;
 
 					game->setStackPickedUp(true, i);
 				}
@@ -195,7 +196,7 @@ void GameScene::processLMBClicked(sf::Vector2f mousePos)
 
 		float xPos = mousePos.x - game->hand.sprite.getGlobalBounds().left;
 		float yPos = mousePos.y - game->hand.sprite.getGlobalBounds().top;
-		game->hand.sprite.setOrigin(sf::Vector2f(xPos, yPos));
+		game->hand.sprite.setOrigin(sf::Vector2f(xPos / float(0.75), yPos / float(0.75)));
 	}
 	else if (game->getHandPickedUp())
 	{

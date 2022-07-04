@@ -8,8 +8,8 @@ Game::Game(sf::RenderWindow& window)
 
 void Game::Setup(sf::RenderWindow& window)
 {
-	locHand = sf::Vector2f(window.getSize().x / 2 + 75.0f, window.getSize().y - 125.0f);
-	locDeck = sf::Vector2f(window.getSize().x / 2 - 150.0f, window.getSize().y - 250.0f);
+	locHand = sf::Vector2f(window.getSize().x / 2 + 90.0f, window.getSize().y - 126.0f);
+	locDeck = sf::Vector2f(window.getSize().x / 2 - 90.0f, window.getSize().y - 126.0f);
 
 	score = 0;
 	deck = new Deck(false, locDeck);
@@ -229,13 +229,13 @@ int Game::getScore()
 
 int Game::getRightmostStack()
 {
-	return emptyEnabledStack;
+	return emptyEnabledStack == stacks.size() ? emptyEnabledStack - 1 : emptyEnabledStack;
 }
 
 // setters
 void Game::setHandPickedUp(bool value)
 {
-	hand.sprite.setOrigin(sf::Vector2f(75.0f, 125.0f));
+	hand.ResetCenter();
 	handPickedUp = value;
 }
 
@@ -245,7 +245,7 @@ void Game::setStackPickedUp(bool value, int idx)
 
 	if (!value)
 	{
-		stacks[pickedStackIdx].setSpriteOrigin(sf::Vector2f(75.0f, 125.0f));
+		stacks[pickedStackIdx].ResetStackOrigin();
 		stacks[pickedStackIdx].ResetStackPosition();
 		pickedStackIdx = -1;
 	}

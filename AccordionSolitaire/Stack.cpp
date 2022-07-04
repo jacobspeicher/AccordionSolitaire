@@ -31,7 +31,7 @@ void Stack::SetSizeText()
 	sizeText.setCharacterSize(10);
 	sizeText.setFillColor(sf::Color::Black);
 	sizeText.setString(std::to_string(cards.size()));
-	sizeText.setPosition(sf::Vector2f(stackPosition.x - 65, stackPosition.y + 100));
+	sizeText.setPosition(sf::Vector2f(stackPosition.x - 60, stackPosition.y + 75));
 	sizeText.setStyle(sf::Text::Bold);
 }
 
@@ -42,8 +42,10 @@ void Stack::CreateSprite()
 	if (!baseStackTexture.loadFromFile(texturePath)) {}
 
 	baseStackSprite.setTexture(baseStackTexture);
-	baseStackSprite.setOrigin(sf::Vector2f(75.0f, 125.0f));
+	localCenter = sf::Vector2f(baseStackSprite.getLocalBounds().width / 2, baseStackSprite.getLocalBounds().height / 2);
+	baseStackSprite.setOrigin(localCenter);
 	baseStackSprite.setPosition(stackPosition);
+	baseStackSprite.setScale(sf::Vector2f(0.75, 0.75));
 }
 
 void Stack::DrawStack(sf::RenderWindow& window, sf::Shader& shader)
@@ -56,9 +58,9 @@ void Stack::DrawStack(sf::RenderWindow& window, sf::Vector2f pos, sf::Shader& sh
 {
 	sf::Vector2f origin = baseStackSprite.getOrigin();
 	sf::Vector2f textOffset;
-	textOffset.x = 10 - origin.x;
-	textOffset.y = 225 - origin.y;
-	sizeText.setPosition(sf::Vector2f(pos.x + textOffset.x, pos.y + textOffset.y));
+	textOffset.x = (origin.x - localCenter.x) * float(0.75) + 60;
+	textOffset.y = (localCenter.y - origin.y) * float(0.75) + 75;
+	sizeText.setPosition(sf::Vector2f(pos.x - textOffset.x, pos.y + textOffset.y));
 
 	baseStackSprite.setPosition(pos);
 	window.draw(baseStackSprite, &shader);
@@ -80,6 +82,11 @@ void Stack::ResetStackPosition()
 {
 	baseStackSprite.setPosition(stackPosition);
 	SetSizeText();
+}
+
+void Stack::ResetStackOrigin()
+{
+	baseStackSprite.setOrigin(localCenter);
 }
 
 // getters
