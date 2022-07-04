@@ -30,6 +30,8 @@ void Card::CreateSprite()
 	localCenter = sf::Vector2f(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
 	sprite.setOrigin(localCenter);
 	sprite.setScale(sf::Vector2f(0.75, 0.75));
+
+	std::cout << sprite.getGlobalBounds().width << ", " << sprite.getGlobalBounds().height << std::endl;
 }
 
 void Card::DrawOnScreen(sf::RenderWindow& window, sf::Vector2f position, sf::Shader& shader)

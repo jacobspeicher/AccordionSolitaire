@@ -229,7 +229,7 @@ int Game::getScore()
 
 int Game::getRightmostStack()
 {
-	return emptyEnabledStack;
+	return emptyEnabledStack == stacks.size() ? emptyEnabledStack - 1 : emptyEnabledStack;
 }
 
 // setters
