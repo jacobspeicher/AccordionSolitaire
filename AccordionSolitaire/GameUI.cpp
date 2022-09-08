@@ -29,7 +29,7 @@ void GameUI::Setup()
 
 	text["title"]->setString("Accordion Solitaire");
 	text["subtitle"]->setString("by Jacob Speicher");
-	text["version"]->setString("v2");
+	text["version"]->setString("v2.0.1");
 
 	text["title"]->setPosition(sf::Vector2f(250, 900));
 	text["subtitle"]->setPosition(sf::Vector2f(300, 950));

@@ -22,11 +22,20 @@ void MainMenuUI::Setup()
 	text["subtitle"]->setCharacterSize(16);
 	text["subtitle"]->setPosition(sf::Vector2f(center.x, center.y - 100));
 
+	text["credit"] = new sf::Text();
+	text["credit"]->setFont(font);
+	text["credit"]->setCharacterSize(14);
+	text["credit"]->setPosition(sf::Vector2f(center.x, center.y + 450));
+
 	text["title"]->setString("Accordion Solitaire");
 	text["subtitle"]->setString("by Jacob Speicher");
+	text["credit"]->setString("Card art by Sara Jenkins (instagram: @saramsjenkins)");
 
 	sf::Vector2f titleCenter(text["title"]->getLocalBounds().width / 2, text["title"]->getLocalBounds().height / 2);
 	text["title"]->setOrigin(titleCenter);
+
+	sf::Vector2f creditCenter(text["credit"]->getLocalBounds().width / 2, text["credit"]->getLocalBounds().height / 2);
+	text["credit"]->setOrigin(creditCenter);
 
 	buttons["play"] = new Button(*window, "Play", sf::Vector2f(center.x, center.y + 55));
 	buttons["instr"] = new Button(*window, "Instructions", sf::Vector2f(center.x, center.y + 105));
