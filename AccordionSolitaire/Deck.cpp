@@ -2,7 +2,7 @@
 
 Deck::Deck(bool bJoker, sf::Vector2f vLocDeck)
 {
-	deckBack = "Assets/Cards/back.png";
+	deckBack = "Assets/SaraCards/back.png";
 	locDeck = vLocDeck;
 	SetDeckSprite();
 
