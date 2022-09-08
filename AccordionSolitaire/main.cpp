@@ -18,7 +18,7 @@ void processKeyboard(sf::RenderWindow& window, sf::Event event);
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Accordion Solitaire", sf::Style::Titlebar | sf::Style::Close);
+	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Accordion Solitaire", sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings(0, 0, 32, 1, 1, 0, false));
 	window.setFramerateLimit(60);
 
 	MainMenuScene* mainMenuScene = new MainMenuScene(window);
