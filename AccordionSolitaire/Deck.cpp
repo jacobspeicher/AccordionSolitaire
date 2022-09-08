@@ -39,16 +39,13 @@ void Deck::DrawDeckPile(sf::RenderWindow& window, sf::Shader& shader)
 	window.draw(deckPile, &shader);
 }
 
-Card& Deck::DrawCard()
+void Deck::DrawCard()
 {
-	Card drawnCard = cards.back();
 	cards.pop_back();
 	if (cards.size() == 0)
 	{
 		DeckIsEmpty();
 	}
-
-	return drawnCard;
 }
 
 // private
