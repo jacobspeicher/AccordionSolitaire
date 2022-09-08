@@ -25,7 +25,7 @@ public:
 	void Shuffle();
 	
 	// draw a card from the deck
-	Card& DrawCard();
+	void DrawCard();
 
 private:
 	std::vector<Card> initialDeck;

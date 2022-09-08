@@ -42,7 +42,8 @@ void Game::DrawCard()
 {
 	if(hand.value == 0 && deck->cards.size() > 0) 
 	{
-		Card drawnCard = deck->DrawCard();
+		Card drawnCard = deck->cards.back();
+		deck->DrawCard();
 		hand = drawnCard;
 		hand.CreateSprite();
 
