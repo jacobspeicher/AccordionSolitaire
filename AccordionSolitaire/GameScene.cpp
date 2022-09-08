@@ -37,6 +37,7 @@ void GameScene::Update(CustomEvent event)
 		{
 		case PlayEvents::ResetGame:
 			ResetGame();
+			return;
 		}
 	}
 

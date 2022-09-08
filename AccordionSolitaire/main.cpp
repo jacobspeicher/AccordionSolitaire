@@ -71,6 +71,7 @@ int main()
 			switch (event)
 			{
 			case GlobalEvents::PlayGame:
+				gameScene = new GameScene(window);
 				screen = Screen::Play;
 				break;
 			case GlobalEvents::GameOver:
@@ -80,6 +81,7 @@ int main()
 				screen = Screen::MainMenu;
 				break;
 			}
+			nextEvent = EventManager::DequeueEvent();
 		}
 
 		window.clear(sf::Color::Color(0, 120, 0));
