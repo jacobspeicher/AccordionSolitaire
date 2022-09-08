@@ -31,7 +31,7 @@ void Card::CreateSprite()
 	sprite.setOrigin(localCenter);
 	sprite.setScale(sf::Vector2f(0.75, 0.75));
 
-	std::cout << sprite.getGlobalBounds().width << ", " << sprite.getGlobalBounds().height << std::endl;
+	//std::cout << sprite.getGlobalBounds().width << ", " << sprite.getGlobalBounds().height << std::endl;
 }
 
 void Card::DrawOnScreen(sf::RenderWindow& window, sf::Vector2f position, sf::Shader& shader)

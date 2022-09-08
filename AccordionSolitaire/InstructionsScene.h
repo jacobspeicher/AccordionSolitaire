@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-#include "Card.h"
+#include "InstructionsUI.h"
 
 class InstructionsScene :
     protected Scene
@@ -22,5 +22,6 @@ public:
     void ProcessMouse(sf::Event event);
 
 private:
+    InstructionsUI* instructionsUI;
 };
 
