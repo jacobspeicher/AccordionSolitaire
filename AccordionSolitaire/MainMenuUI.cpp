@@ -30,12 +30,12 @@ void MainMenuUI::Setup()
 
 	buttons["play"] = new Button(*window, "Play", sf::Vector2f(center.x, center.y + 55));
 	buttons["instr"] = new Button(*window, "Instructions", sf::Vector2f(center.x, center.y + 105));
-	buttons["options"] = new Button(*window, "Options", sf::Vector2f(center.x, center.y + 155));
+	//buttons["options"] = new Button(*window, "Options", sf::Vector2f(center.x, center.y + 155));
 	buttons["quit"] = new Button(*window, "Quit", sf::Vector2f(center.x, center.y + 205));
 
 	buttons["play"]->setEvent(CustomEvent(Screen::MainMenu, static_cast<int>(MainMenuEvents::PlayGame)));
 	buttons["instr"]->setEvent(CustomEvent(Screen::MainMenu, static_cast<int>(MainMenuEvents::OpenInstructions)));
-	buttons["options"]->setEvent(CustomEvent(Screen::MainMenu, static_cast<int>(MainMenuEvents::OpenOptions)));
+	//buttons["options"]->setEvent(CustomEvent(Screen::MainMenu, static_cast<int>(MainMenuEvents::OpenOptions)));
 	buttons["quit"]->setEvent(CustomEvent(Screen::MainMenu, static_cast<int>(MainMenuEvents::Quit)));
 }
 

@@ -37,7 +37,7 @@ void GameUI::Setup()
 	text["cardsLeft"]->setPosition(sf::Vector2f(1500, 950));
 	text["version"]->setPosition(sf::Vector2f(20, 1050));
 
-	buttons["Reset"] = new Button(*window, "Reset", sf::Vector2f(1500, 1000));
+	buttons["Reset"] = new Button(*window, "Reset", sf::Vector2f(1550, 1000));
 	buttons["Reset"]->setEvent(CustomEvent(Screen::Play, static_cast<int>(PlayEvents::ResetGame)));
 }
 
