@@ -113,6 +113,9 @@
     <ClCompile Include="GameOverUI.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="InstructionsUI.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">
@@ -167,6 +170,9 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="GameOverUI.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="InstructionsUI.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>

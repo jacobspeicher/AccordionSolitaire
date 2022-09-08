@@ -25,6 +25,7 @@ void MainMenuScene::Update(CustomEvent event)
 			menuEvent = new CustomEvent(Screen::Global, static_cast<int>(GlobalEvents::PlayGame));
 			break;
 		case MainMenuEvents::OpenInstructions:
+			menuEvent = new CustomEvent(Screen::Global, static_cast<int>(GlobalEvents::OpenInstructions));
 			break;
 		case MainMenuEvents::OpenOptions:
 			break;

@@ -74,6 +74,9 @@ int main()
 				gameScene = new GameScene(window);
 				screen = Screen::Play;
 				break;
+			case GlobalEvents::OpenInstructions:
+				screen = Screen::Instructions;
+				break;
 			case GlobalEvents::GameOver:
 				screen = Screen::GameOver;
 				break;
